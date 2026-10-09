@@ -1,0 +1,979 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище is1_25_kokorinds_Kursovoy_ProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Documentation">
+          <Key>
+            <PropertyRef Name="id_Documentation" />
+          </Key>
+          <Property Name="id_Documentation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Status" Type="int" Nullable="false" />
+          <Property Name="id_Project" Type="int" Nullable="false" />
+          <Property Name="Progress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cost" Type="money" />
+          <Property Name="Profit" Type="money" />
+        </EntityType>
+        <EntityType Name="Eventt">
+          <Key>
+            <PropertyRef Name="id_Event" />
+          </Key>
+          <Property Name="id_Event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_User" Type="int" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descriptionn" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Start_Datee" Type="date" Nullable="false" />
+          <Property Name="End_Date" Type="date" Nullable="false" />
+          <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id_News" />
+          </Key>
+          <Property Name="id_News" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Heading" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descriptionn" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Publication_Date" Type="date" Nullable="false" />
+          <Property Name="id_User" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id_Post" />
+          </Key>
+          <Property Name="id_Post" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Priorityy">
+          <Key>
+            <PropertyRef Name="id_Priority" />
+          </Key>
+          <Property Name="id_Priority" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Production_Project">
+          <Key>
+            <PropertyRef Name="id_Project" />
+          </Key>
+          <Property Name="id_Project" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriptionn" Type="nvarchar" MaxLength="200" />
+          <Property Name="Start_Datee" Type="date" Nullable="false" />
+          <Property Name="End_Datee" Type="date" />
+          <Property Name="Budget" Type="money" Nullable="false" />
+          <Property Name="id_Status" Type="int" Nullable="false" />
+          <Property Name="id_Resource" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project_Team">
+          <Key>
+            <PropertyRef Name="id_Project_Team" />
+          </Key>
+          <Property Name="id_Project_Team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Project" Type="int" />
+          <Property Name="id_User" Type="int" />
+        </EntityType>
+        <EntityType Name="Resource_Type">
+          <Key>
+            <PropertyRef Name="id_Resource_Type" />
+          </Key>
+          <Property Name="id_Resource_Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resourcee">
+          <Key>
+            <PropertyRef Name="id_Resource" />
+          </Key>
+          <Property Name="id_Resource" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Resource_Type" Type="int" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descriptionn" Type="nvarchar" MaxLength="250" />
+          <Property Name="Availabilityy" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Rolee">
+          <Key>
+            <PropertyRef Name="id_Role" />
+          </Key>
+          <Property Name="id_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statuss">
+          <Key>
+            <PropertyRef Name="id_Status" />
+          </Key>
+          <Property Name="id_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="id_Tasks" />
+          </Key>
+          <Property Name="id_Tasks" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Project" Type="int" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriptionn" Type="nvarchar" MaxLength="200" />
+          <Property Name="id_Priority" Type="int" Nullable="false" />
+          <Property Name="Start_Datee" Type="date" Nullable="false" />
+          <Property Name="End_Datee" Type="date" />
+          <Property Name="id_Status" Type="int" Nullable="false" />
+          <Property Name="Time_Spent" Type="nvarchar" MaxLength="25" />
+          <Property Name="id_User" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Userr">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Namee" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Post" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number_Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Passwordd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Documenta__id_Pr__52593CB8">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="1" />
+          <End Role="Documentation" Type="Self.Documentation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Documentation">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documenta__id_St__5165187F">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Documentation" Type="Self.Documentation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Documentation">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventt__id_User__3F466844">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="Eventt" Type="Self.Eventt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Eventt">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__id_User__4222D4EF">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productio__id_Re__4E88ABD4">
+          <End Role="Resourcee" Type="Self.Resourcee" Multiplicity="1" />
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resourcee">
+              <PropertyRef Name="id_Resource" />
+            </Principal>
+            <Dependent Role="Production_Project">
+              <PropertyRef Name="id_Resource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productio__id_St__4D94879B">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Production_Project">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_T__id_Pr__5535A963">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="0..1" />
+          <End Role="Project_Team" Type="Self.Project_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Project_Team">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_T__id_Us__5629CD9C">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="0..1" />
+          <End Role="Project_Team" Type="Self.Project_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Project_Team">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resourcee__id_Re__4AB81AF0">
+          <End Role="Resource_Type" Type="Self.Resource_Type" Multiplicity="0..1" />
+          <End Role="Resourcee" Type="Self.Resourcee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource_Type">
+              <PropertyRef Name="id_Resource_Type" />
+            </Principal>
+            <Dependent Role="Resourcee">
+              <PropertyRef Name="id_Resource_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Priori__59FA5E80">
+          <End Role="Priorityy" Type="Self.Priorityy" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorityy">
+              <PropertyRef Name="id_Priority" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Priority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Projec__59063A47">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Status__5AEE82B9">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_User__5BE2A6F2">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Userr__id_Post__3B75D760">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Userr" Type="Self.Userr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id_Post" />
+            </Principal>
+            <Dependent Role="Userr">
+              <PropertyRef Name="id_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Userr__id_Role__3C69FB99">
+          <End Role="Rolee" Type="Self.Rolee" Multiplicity="1" />
+          <End Role="Userr" Type="Self.Userr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rolee">
+              <PropertyRef Name="id_Role" />
+            </Principal>
+            <Dependent Role="Userr">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище is1_25_kokorinds_Kursovoy_ProjectModelContainer">
+          <EntitySet Name="Documentation" EntityType="Self.Documentation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eventt" EntityType="Self.Eventt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priorityy" EntityType="Self.Priorityy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Production_Project" EntityType="Self.Production_Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_Team" EntityType="Self.Project_Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resource_Type" EntityType="Self.Resource_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resourcee" EntityType="Self.Resourcee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rolee" EntityType="Self.Rolee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuss" EntityType="Self.Statuss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Userr" EntityType="Self.Userr" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Documenta__id_Pr__52593CB8" Association="Self.FK__Documenta__id_Pr__52593CB8">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Documentation" EntitySet="Documentation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documenta__id_St__5165187F" Association="Self.FK__Documenta__id_St__5165187F">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Documentation" EntitySet="Documentation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventt__id_User__3F466844" Association="Self.FK__Eventt__id_User__3F466844">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Eventt" EntitySet="Eventt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__id_User__4222D4EF" Association="Self.FK__News__id_User__4222D4EF">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productio__id_Re__4E88ABD4" Association="Self.FK__Productio__id_Re__4E88ABD4">
+            <End Role="Resourcee" EntitySet="Resourcee" />
+            <End Role="Production_Project" EntitySet="Production_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productio__id_St__4D94879B" Association="Self.FK__Productio__id_St__4D94879B">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Production_Project" EntitySet="Production_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_T__id_Pr__5535A963" Association="Self.FK__Project_T__id_Pr__5535A963">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Project_Team" EntitySet="Project_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_T__id_Us__5629CD9C" Association="Self.FK__Project_T__id_Us__5629CD9C">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Project_Team" EntitySet="Project_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resourcee__id_Re__4AB81AF0" Association="Self.FK__Resourcee__id_Re__4AB81AF0">
+            <End Role="Resource_Type" EntitySet="Resource_Type" />
+            <End Role="Resourcee" EntitySet="Resourcee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Priori__59FA5E80" Association="Self.FK__Tasks__id_Priori__59FA5E80">
+            <End Role="Priorityy" EntitySet="Priorityy" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Projec__59063A47" Association="Self.FK__Tasks__id_Projec__59063A47">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Status__5AEE82B9" Association="Self.FK__Tasks__id_Status__5AEE82B9">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_User__5BE2A6F2" Association="Self.FK__Tasks__id_User__5BE2A6F2">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Userr__id_Post__3B75D760" Association="Self.FK__Userr__id_Post__3B75D760">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Userr" EntitySet="Userr" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Userr__id_Role__3C69FB99" Association="Self.FK__Userr__id_Role__3C69FB99">
+            <End Role="Rolee" EntitySet="Rolee" />
+            <End Role="Userr" EntitySet="Userr" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="is1_25_kokorinds_Kursovoy_ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Documentation">
+          <Key>
+            <PropertyRef Name="id_Documentation" />
+          </Key>
+          <Property Name="id_Documentation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Status" Type="Int32" Nullable="false" />
+          <Property Name="id_Project" Type="Int32" Nullable="false" />
+          <Property Name="Progress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Profit" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Production_Project" Relationship="Self.FK__Documenta__id_Pr__52593CB8" FromRole="Documentation" ToRole="Production_Project" />
+          <NavigationProperty Name="Statuss" Relationship="Self.FK__Documenta__id_St__5165187F" FromRole="Documentation" ToRole="Statuss" />
+        </EntityType>
+        <EntityType Name="Eventt">
+          <Key>
+            <PropertyRef Name="id_Event" />
+          </Key>
+          <Property Name="id_Event" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_User" Type="Int32" Nullable="false" />
+          <Property Name="Namee" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriptionn" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Start_Datee" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__Eventt__id_User__3F466844" FromRole="Eventt" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id_News" />
+          </Key>
+          <Property Name="id_News" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Heading" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriptionn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Publication_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_User" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__News__id_User__4222D4EF" FromRole="News" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id_Post" />
+          </Key>
+          <Property Name="id_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__Userr__id_Post__3B75D760" FromRole="Post" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="Priorityy">
+          <Key>
+            <PropertyRef Name="id_Priority" />
+          </Key>
+          <Property Name="id_Priority" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__id_Priori__59FA5E80" FromRole="Priorityy" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Production_Project">
+          <Key>
+            <PropertyRef Name="id_Project" />
+          </Key>
+          <Property Name="id_Project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriptionn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Start_Datee" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="End_Datee" Type="DateTime" Precision="0" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="id_Status" Type="Int32" Nullable="false" />
+          <Property Name="id_Resource" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Documentation" Relationship="Self.FK__Documenta__id_Pr__52593CB8" FromRole="Production_Project" ToRole="Documentation" />
+          <NavigationProperty Name="Resourcee" Relationship="Self.FK__Productio__id_Re__4E88ABD4" FromRole="Production_Project" ToRole="Resourcee" />
+          <NavigationProperty Name="Statuss" Relationship="Self.FK__Productio__id_St__4D94879B" FromRole="Production_Project" ToRole="Statuss" />
+          <NavigationProperty Name="Project_Team" Relationship="Self.FK__Project_T__id_Pr__5535A963" FromRole="Production_Project" ToRole="Project_Team" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__id_Projec__59063A47" FromRole="Production_Project" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Project_Team">
+          <Key>
+            <PropertyRef Name="id_Project_Team" />
+          </Key>
+          <Property Name="id_Project_Team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Project" Type="Int32" />
+          <Property Name="id_User" Type="Int32" />
+          <NavigationProperty Name="Production_Project" Relationship="Self.FK__Project_T__id_Pr__5535A963" FromRole="Project_Team" ToRole="Production_Project" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__Project_T__id_Us__5629CD9C" FromRole="Project_Team" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="Resource_Type">
+          <Key>
+            <PropertyRef Name="id_Resource_Type" />
+          </Key>
+          <Property Name="id_Resource_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Resourcee" Relationship="Self.FK__Resourcee__id_Re__4AB81AF0" FromRole="Resource_Type" ToRole="Resourcee" />
+        </EntityType>
+        <EntityType Name="Resourcee">
+          <Key>
+            <PropertyRef Name="id_Resource" />
+          </Key>
+          <Property Name="id_Resource" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Resource_Type" Type="Int32" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptionn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Availabilityy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Production_Project" Relationship="Self.FK__Productio__id_Re__4E88ABD4" FromRole="Resourcee" ToRole="Production_Project" />
+          <NavigationProperty Name="Resource_Type" Relationship="Self.FK__Resourcee__id_Re__4AB81AF0" FromRole="Resourcee" ToRole="Resource_Type" />
+        </EntityType>
+        <EntityType Name="Rolee">
+          <Key>
+            <PropertyRef Name="id_Role" />
+          </Key>
+          <Property Name="id_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__Userr__id_Role__3C69FB99" FromRole="Rolee" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="Statuss">
+          <Key>
+            <PropertyRef Name="id_Status" />
+          </Key>
+          <Property Name="id_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Documentation" Relationship="Self.FK__Documenta__id_St__5165187F" FromRole="Statuss" ToRole="Documentation" />
+          <NavigationProperty Name="Production_Project" Relationship="Self.FK__Productio__id_St__4D94879B" FromRole="Statuss" ToRole="Production_Project" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__id_Status__5AEE82B9" FromRole="Statuss" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="id_Tasks" />
+          </Key>
+          <Property Name="id_Tasks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Project" Type="Int32" Nullable="false" />
+          <Property Name="Namee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriptionn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="id_Priority" Type="Int32" Nullable="false" />
+          <Property Name="Start_Datee" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="End_Datee" Type="DateTime" Precision="0" />
+          <Property Name="id_Status" Type="Int32" Nullable="false" />
+          <Property Name="Time_Spent" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="id_User" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Priorityy" Relationship="Self.FK__Tasks__id_Priori__59FA5E80" FromRole="Tasks" ToRole="Priorityy" />
+          <NavigationProperty Name="Production_Project" Relationship="Self.FK__Tasks__id_Projec__59063A47" FromRole="Tasks" ToRole="Production_Project" />
+          <NavigationProperty Name="Statuss" Relationship="Self.FK__Tasks__id_Status__5AEE82B9" FromRole="Tasks" ToRole="Statuss" />
+          <NavigationProperty Name="Userr" Relationship="Self.FK__Tasks__id_User__5BE2A6F2" FromRole="Tasks" ToRole="Userr" />
+        </EntityType>
+        <EntityType Name="Userr">
+          <Key>
+            <PropertyRef Name="id_User" />
+          </Key>
+          <Property Name="id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Namee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Post" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passwordd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Eventt" Relationship="Self.FK__Eventt__id_User__3F466844" FromRole="Userr" ToRole="Eventt" />
+          <NavigationProperty Name="News" Relationship="Self.FK__News__id_User__4222D4EF" FromRole="Userr" ToRole="News" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__Userr__id_Post__3B75D760" FromRole="Userr" ToRole="Post" />
+          <NavigationProperty Name="Project_Team" Relationship="Self.FK__Project_T__id_Us__5629CD9C" FromRole="Userr" ToRole="Project_Team" />
+          <NavigationProperty Name="Rolee" Relationship="Self.FK__Userr__id_Role__3C69FB99" FromRole="Userr" ToRole="Rolee" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__id_User__5BE2A6F2" FromRole="Userr" ToRole="Tasks" />
+        </EntityType>
+        <Association Name="FK__Documenta__id_Pr__52593CB8">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="1" />
+          <End Role="Documentation" Type="Self.Documentation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Documentation">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documenta__id_St__5165187F">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Documentation" Type="Self.Documentation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Documentation">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventt__id_User__3F466844">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="Eventt" Type="Self.Eventt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Eventt">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__id_User__4222D4EF">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Userr__id_Post__3B75D760">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Userr" Type="Self.Userr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id_Post" />
+            </Principal>
+            <Dependent Role="Userr">
+              <PropertyRef Name="id_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Priori__59FA5E80">
+          <End Role="Priorityy" Type="Self.Priorityy" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorityy">
+              <PropertyRef Name="id_Priority" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Priority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productio__id_Re__4E88ABD4">
+          <End Role="Resourcee" Type="Self.Resourcee" Multiplicity="1" />
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resourcee">
+              <PropertyRef Name="id_Resource" />
+            </Principal>
+            <Dependent Role="Production_Project">
+              <PropertyRef Name="id_Resource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productio__id_St__4D94879B">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Production_Project">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_T__id_Pr__5535A963">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="0..1" />
+          <End Role="Project_Team" Type="Self.Project_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Project_Team">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Projec__59063A47">
+          <End Role="Production_Project" Type="Self.Production_Project" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Project">
+              <PropertyRef Name="id_Project" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Project" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Project_T__id_Us__5629CD9C">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="0..1" />
+          <End Role="Project_Team" Type="Self.Project_Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Project_Team">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resourcee__id_Re__4AB81AF0">
+          <End Role="Resource_Type" Type="Self.Resource_Type" Multiplicity="0..1" />
+          <End Role="Resourcee" Type="Self.Resourcee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resource_Type">
+              <PropertyRef Name="id_Resource_Type" />
+            </Principal>
+            <Dependent Role="Resourcee">
+              <PropertyRef Name="id_Resource_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Userr__id_Role__3C69FB99">
+          <End Role="Rolee" Type="Self.Rolee" Multiplicity="1" />
+          <End Role="Userr" Type="Self.Userr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rolee">
+              <PropertyRef Name="id_Role" />
+            </Principal>
+            <Dependent Role="Userr">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_Status__5AEE82B9">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="id_Status" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__id_User__5BE2A6F2">
+          <End Role="Userr" Type="Self.Userr" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Userr">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="is1_25_kokorinds_Kursovoy_ProjectEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Documentation" EntityType="Self.Documentation" />
+          <EntitySet Name="Eventt" EntityType="Self.Eventt" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="Priorityy" EntityType="Self.Priorityy" />
+          <EntitySet Name="Production_Project" EntityType="Self.Production_Project" />
+          <EntitySet Name="Project_Team" EntityType="Self.Project_Team" />
+          <EntitySet Name="Resource_Type" EntityType="Self.Resource_Type" />
+          <EntitySet Name="Resourcee" EntityType="Self.Resourcee" />
+          <EntitySet Name="Rolee" EntityType="Self.Rolee" />
+          <EntitySet Name="Statuss" EntityType="Self.Statuss" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" />
+          <EntitySet Name="Userr" EntityType="Self.Userr" />
+          <AssociationSet Name="FK__Documenta__id_Pr__52593CB8" Association="Self.FK__Documenta__id_Pr__52593CB8">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Documentation" EntitySet="Documentation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documenta__id_St__5165187F" Association="Self.FK__Documenta__id_St__5165187F">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Documentation" EntitySet="Documentation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventt__id_User__3F466844" Association="Self.FK__Eventt__id_User__3F466844">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Eventt" EntitySet="Eventt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__id_User__4222D4EF" Association="Self.FK__News__id_User__4222D4EF">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Userr__id_Post__3B75D760" Association="Self.FK__Userr__id_Post__3B75D760">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Userr" EntitySet="Userr" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Priori__59FA5E80" Association="Self.FK__Tasks__id_Priori__59FA5E80">
+            <End Role="Priorityy" EntitySet="Priorityy" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productio__id_Re__4E88ABD4" Association="Self.FK__Productio__id_Re__4E88ABD4">
+            <End Role="Resourcee" EntitySet="Resourcee" />
+            <End Role="Production_Project" EntitySet="Production_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productio__id_St__4D94879B" Association="Self.FK__Productio__id_St__4D94879B">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Production_Project" EntitySet="Production_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_T__id_Pr__5535A963" Association="Self.FK__Project_T__id_Pr__5535A963">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Project_Team" EntitySet="Project_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Projec__59063A47" Association="Self.FK__Tasks__id_Projec__59063A47">
+            <End Role="Production_Project" EntitySet="Production_Project" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Project_T__id_Us__5629CD9C" Association="Self.FK__Project_T__id_Us__5629CD9C">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Project_Team" EntitySet="Project_Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resourcee__id_Re__4AB81AF0" Association="Self.FK__Resourcee__id_Re__4AB81AF0">
+            <End Role="Resource_Type" EntitySet="Resource_Type" />
+            <End Role="Resourcee" EntitySet="Resourcee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Userr__id_Role__3C69FB99" Association="Self.FK__Userr__id_Role__3C69FB99">
+            <End Role="Rolee" EntitySet="Rolee" />
+            <End Role="Userr" EntitySet="Userr" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_Status__5AEE82B9" Association="Self.FK__Tasks__id_Status__5AEE82B9">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__id_User__5BE2A6F2" Association="Self.FK__Tasks__id_User__5BE2A6F2">
+            <End Role="Userr" EntitySet="Userr" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище is1_25_kokorinds_Kursovoy_ProjectModelContainer" CdmEntityContainer="is1_25_kokorinds_Kursovoy_ProjectEntities1">
+          <EntitySetMapping Name="Documentation">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Documentation">
+              <MappingFragment StoreEntitySet="Documentation">
+                <ScalarProperty Name="id_Documentation" ColumnName="id_Documentation" />
+                <ScalarProperty Name="id_Status" ColumnName="id_Status" />
+                <ScalarProperty Name="id_Project" ColumnName="id_Project" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eventt">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Eventt">
+              <MappingFragment StoreEntitySet="Eventt">
+                <ScalarProperty Name="id_Event" ColumnName="id_Event" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+                <ScalarProperty Name="Descriptionn" ColumnName="Descriptionn" />
+                <ScalarProperty Name="Start_Datee" ColumnName="Start_Datee" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="id_News" ColumnName="id_News" />
+                <ScalarProperty Name="Heading" ColumnName="Heading" />
+                <ScalarProperty Name="Descriptionn" ColumnName="Descriptionn" />
+                <ScalarProperty Name="Publication_Date" ColumnName="Publication_Date" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="id_Post" ColumnName="id_Post" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorityy">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Priorityy">
+              <MappingFragment StoreEntitySet="Priorityy">
+                <ScalarProperty Name="id_Priority" ColumnName="id_Priority" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Production_Project">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Production_Project">
+              <MappingFragment StoreEntitySet="Production_Project">
+                <ScalarProperty Name="id_Project" ColumnName="id_Project" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+                <ScalarProperty Name="Descriptionn" ColumnName="Descriptionn" />
+                <ScalarProperty Name="Start_Datee" ColumnName="Start_Datee" />
+                <ScalarProperty Name="End_Datee" ColumnName="End_Datee" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="id_Status" ColumnName="id_Status" />
+                <ScalarProperty Name="id_Resource" ColumnName="id_Resource" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_Team">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Project_Team">
+              <MappingFragment StoreEntitySet="Project_Team">
+                <ScalarProperty Name="id_Project_Team" ColumnName="id_Project_Team" />
+                <ScalarProperty Name="id_Project" ColumnName="id_Project" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resource_Type">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Resource_Type">
+              <MappingFragment StoreEntitySet="Resource_Type">
+                <ScalarProperty Name="id_Resource_Type" ColumnName="id_Resource_Type" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resourcee">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Resourcee">
+              <MappingFragment StoreEntitySet="Resourcee">
+                <ScalarProperty Name="id_Resource" ColumnName="id_Resource" />
+                <ScalarProperty Name="id_Resource_Type" ColumnName="id_Resource_Type" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+                <ScalarProperty Name="Descriptionn" ColumnName="Descriptionn" />
+                <ScalarProperty Name="Availabilityy" ColumnName="Availabilityy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rolee">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Rolee">
+              <MappingFragment StoreEntitySet="Rolee">
+                <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuss">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Statuss">
+              <MappingFragment StoreEntitySet="Statuss">
+                <ScalarProperty Name="id_Status" ColumnName="id_Status" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Tasks">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="id_Tasks" ColumnName="id_Tasks" />
+                <ScalarProperty Name="id_Project" ColumnName="id_Project" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+                <ScalarProperty Name="Descriptionn" ColumnName="Descriptionn" />
+                <ScalarProperty Name="id_Priority" ColumnName="id_Priority" />
+                <ScalarProperty Name="Start_Datee" ColumnName="Start_Datee" />
+                <ScalarProperty Name="End_Datee" ColumnName="End_Datee" />
+                <ScalarProperty Name="id_Status" ColumnName="id_Status" />
+                <ScalarProperty Name="Time_Spent" ColumnName="Time_Spent" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Userr">
+            <EntityTypeMapping TypeName="is1_25_kokorinds_Kursovoy_ProjectModel.Userr">
+              <MappingFragment StoreEntitySet="Userr">
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Namee" ColumnName="Namee" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="id_Post" ColumnName="id_Post" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Number_Phone" ColumnName="Number_Phone" />
+                <ScalarProperty Name="Passwordd" ColumnName="Passwordd" />
+                <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da133435ee6f4e3fbbd06efc6b6ed791" Name="Diagram1">
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Documentation" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Eventt" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.News" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Post" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Priorityy" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Production_Project" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Project_Team" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Resource_Type" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Resourcee" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Rolee" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Statuss" Width="1.5" PointX="3.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Tasks" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="is1_25_kokorinds_Kursovoy_ProjectModel.Userr" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Documenta__id_Pr__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Documenta__id_St__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Eventt__id_User__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__News__id_User__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Userr__id_Post__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Tasks__id_Priori__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Productio__id_Re__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Productio__id_St__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Project_T__id_Pr__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Tasks__id_Projec__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Project_T__id_Us__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Resourcee__id_Re__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Userr__id_Role__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Tasks__id_Status__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="is1_25_kokorinds_Kursovoy_ProjectModel.FK__Tasks__id_User__5BE2A6F2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

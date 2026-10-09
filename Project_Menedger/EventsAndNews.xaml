@@ -1,0 +1,517 @@
+﻿<Window x:Class="Project_Menedger.EventsAndNews"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Menedger"
+        mc:Ignorable="d"
+        Title="Новости и мероприятия" Height="800" Width="1200" WindowStartupLocation="CenterScreen" 
+        Background="#041c36" WindowStyle="None" Icon="/Image/InsiLogo.png" MinHeight="800" MinWidth="1200"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.16*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.30*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0" MaxHeight="100">
+            <Grid>
+                <TextBlock Width="115" Height="20" TextAlignment="Center" HorizontalAlignment="Left">
+                    <Button Width="70" Height="20" Background="#63a4ff" Content="Назад" FontSize="9" FontStyle="Italic"
+                            x:Name="Button_Back" Foreground="#fff" HorizontalAlignment="Left"
+                            Click="Button_Back_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </TextBlock>
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Мероприятия" FontSize="25" Foreground="White" x:Name="label_Text"
+                        FontStyle="Italic" FontWeight="Black" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Row="0" MaxHeight="45" HorizontalAlignment="Right" VerticalAlignment="Top"
+         Grid.Column="1">
+            <Grid HorizontalAlignment="Right">
+                <Button Content="❌" FontFamily="Comic Sans MS" Height="15" Width="15"
+HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 5 0"
+FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+x:Name="Button_Close" Click="Button_Close_Click"/>
+                <Button Content="🔲" FontFamily="Comic Sans MS" Height="15" Width="15"
+HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 23 0"
+FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+x:Name="Button_Unwrap" Click="Button_Unwrap_Click"/>
+                <Button Content="🗕" FontFamily="Comic Sans MS" Height="15" Width="15"
+HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 41 0"
+FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+VerticalContentAlignment="Center" x:Name="Button_RollUp" Click="Button_RollUp_Click"/>
+            </Grid>
+        </Viewbox>
+        <!--menuNews-->
+        <Viewbox Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" x:Name="InfoMenuNews" Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+    <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+             Foreground="#fff" HorizontalAlignment="Left"
+            x:Name="Button_EventSwaping" Click="Button_EventSwaping_Click">
+        <TextBlock Text="Мероприятия" TextWrapping="Wrap"/>
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_AddNews"
+        Click="Button_AddNews_Click">
+    <TextBlock Text="Добавить" TextWrapping="Wrap"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                </TextBlock>
+                </Grid>
+                <Grid Grid.Row="2" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" Content="Редактировать" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_RedactNews"
+                                Click="Button_RedactNews_Click">
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_DeleteNews"
+                                Click="Button_DeleteNews_Click">
+                            <TextBlock Text="Удалить" TextWrapping="Wrap" FontSize="9"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="4" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" Content="Сбросить фильтрацию" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_ClearFilter" Click="Button_ClearFilter_Click">
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" x:Name="InfoMenuNewsEmployee" Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+    <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+             Foreground="#fff" HorizontalAlignment="Left"
+            x:Name="Button_EventSwapingEmployee" Click="Button_EventSwapingEmployee_Click">
+        <TextBlock Text="Мероприятия" TextWrapping="Wrap"/>
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" Content="Сбросить фильтрацию" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_ClearFilterr" Click="Button_ClearFilter_Click">
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Viewbox>
+        <!--menuEvent-->
+        <Viewbox Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" x:Name="InfoMenuEvents" Visibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+    <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+             Foreground="#fff" HorizontalAlignment="Left" 
+            x:Name="Button_NewsSwaping" Click="Button_NewsSwaping_Click">
+        <TextBlock Text="Новости" TextWrapping="Wrap"/>
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_AddEvent"
+        Click="Button_AddEvent_Click">
+    <TextBlock Text="Добавить" TextWrapping="Wrap"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                </TextBlock>
+                </Grid>
+                <Grid Grid.Row="2" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" Content="Редактировать" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_RedactEvent"
+                                Click="Button_RedactEvent_Click">
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_DeleteEvent"
+                                Click="Button_DeleteEvent_Click">
+                            <TextBlock Text="Удалить" TextWrapping="Wrap" FontSize="9"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="4" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="FiltersCleart" Click="FiltersCleart_Click">
+                            <TextBlock Text="Сбросить фильтрацию" TextWrapping="Wrap" FontSize="9"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" x:Name="InfoMenuEventsEmployee" Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+    <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+             Foreground="#fff" HorizontalAlignment="Left" 
+            x:Name="Button_NewsSwapingEmployee" Click="Button_NewsSwapingEmployee_Click">
+        <TextBlock Text="Новости" TextWrapping="Wrap"/>
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" x:Name="FiltersCleartt" Click="FiltersCleart_Click">
+                            <TextBlock Text="Сбросить фильтрацию" TextWrapping="Wrap" FontSize="9"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Viewbox>
+        <!--event-->
+        <Grid Grid.Row="2" Grid.Column="1" Visibility="Visible" x:Name="InfoEvent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" MaxHeight="110">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <Label Content="Поиск" FontSize="16" Height="30" Width="90" Foreground="White" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <Label Content="Дата начала" FontSize="16" Height="30" Width="170" Foreground="White" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <!--News-->
+        <Grid Grid.Row="2" Grid.Column="1" Visibility="Hidden" x:Name="InfoNews">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" MaxHeight="110">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <Label Content="Поиск" FontSize="16" Height="30" Width="90" Foreground="White" 
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <Label Content="Дата публикации" FontSize="16" Height="30" Width="170" Foreground="White" 
+       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+       FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.12*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--event-->
+            <Grid Grid.Row="1" MaxHeight="110" Visibility="Visible" x:Name="InfoEvents">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+                            <TextBox Height="15" Width="100" Foreground="Black" HorizontalContentAlignment="Center"
+                            BorderBrush="White" FontSize="9" VerticalContentAlignment="Center" x:Name="TextBox_Search"
+                                      Margin="0 2 0 0" TextChanged="TextBox_Search_TextChanged">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+                            <DatePicker Name="DatePicker_Time" IsDropDownOpen="False" SelectedDateFormat="Short" Width="100" Height="19"
+                                        FontSize="9" SelectedDateChanged="DatePicker_Time_SelectedDateChanged"/>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+            <!--news-->
+            <Grid Grid.Row="1" MaxHeight="110" Visibility="Hidden" x:Name="InfoNewss">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+                <TextBox Height="15" Width="100" Foreground="Black" HorizontalContentAlignment="Center"
+                BorderBrush="White" FontSize="9" VerticalContentAlignment="Center"
+                         x:Name="TextBox_SearchNews" Margin="0 2 0 0" TextChanged="TextBox_SearchNews_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+            <DatePicker Name="DatePicker_TimesNews" IsDropDownOpen="False" SelectedDateFormat="Short" Width="100" Height="19"
+                        FontSize="9" SelectedDateChanged="DatePicker_TimesNews_SelectedDateChanged"/>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+            <!--listview Event-->
+            <Viewbox Grid.Row="2" Grid.ColumnSpan="3" Margin="5" Visibility="Visible"
+                     x:Name="EventsVisibility" Stretch="Fill">
+                <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="5" x:Name="ListView_Events"
+                          Height="500" Width="900">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="2" BorderBrush="Black">
+                                <Grid Width="865">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Создал:" Margin="10 7 0 0" FontSize="18"/>
+                                            <TextBlock Text="{Binding Userr.Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Userr.Surname}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Userr.Patronymic}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Название:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Описание:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Descriptionn}" FontSize="18" Margin="10 7 0 0"
+                                                   TextWrapping="Wrap" MaxWidth="800"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Дата начала:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Start_Datee, StringFormat=dd.MM.yyyy}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="Дата окончания:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding End_Date, StringFormat=dd.MM.yyyy}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="4">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Место проведения:" FontSize="18" Margin="10 7 0 7"/>
+                                            <TextBlock Text="{Binding Place}" FontSize="18" Margin="10 7 0 7"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Viewbox>
+            <!--listview News-->
+            <Viewbox Grid.Row="2" Grid.ColumnSpan="3" Margin="5" Visibility="Hidden"
+                        x:Name="NewsVisibility" Stretch="Fill">
+                <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="5" x:Name="ListView_News"
+              Height="500" Width="900">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="2" BorderBrush="Black">
+                                <Grid Width="865">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Создал:" Margin="10 7 0 0" FontSize="18"/>
+                                            <TextBlock Text="{Binding Userr.Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Userr.Surname}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Userr.Patronymic}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Заголовок:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Heading}" FontSize="18" Margin="10 7 0 0"
+                                                       TextWrapping="Wrap" MaxWidth="800"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Описание:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Descriptionn}" FontSize="18" Margin="10 7 0 0"
+                                       TextWrapping="Wrap" MaxWidth="761"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Дата публикации:" FontSize="18" Margin="10 7 0 7"/>
+                                            <TextBlock Text="{Binding Publication_Date, StringFormat=dd.MM.yyyy}" FontSize="18" Margin="10 7 0 7"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Window>

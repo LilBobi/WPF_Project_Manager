@@ -1,0 +1,254 @@
+﻿<Window x:Class="Project_Menedger.InformationUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_Menedger"
+        mc:Ignorable="d"
+                Title="Информация о проектах" Height="800" Width="1320" WindowStartupLocation="CenterScreen" 
+        Background="#041c36" WindowStyle="None" Icon="/Image/InsiLogo.png" MinHeight="800" MinWidth="1320"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.16*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.28*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0" MaxHeight="100">
+            <Grid>
+                <TextBlock Width="115" Height="20" TextAlignment="Center" HorizontalAlignment="Left">
+                    <Button Width="70" Height="20" Background="#63a4ff" Content="Назад" FontSize="9" FontStyle="Italic"
+                            x:Name="Button_Back" Foreground="#fff" HorizontalAlignment="Left" Click="Button_Back_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </TextBlock>
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Пользователи" FontSize="10" Foreground="White"
+                        FontStyle="Italic" FontWeight="Black" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Row="0" MaxHeight="45" HorizontalAlignment="Right" VerticalAlignment="Top"
+                 Grid.Column="1">
+            <Grid HorizontalAlignment="Right">
+                <Button Content="❌" FontFamily="Comic Sans MS" Height="15" Width="15"
+        HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 5 0"
+        FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+        x:Name="Button_Close" Click="Button_Close_Click"/>
+                <Button Content="🔲" FontFamily="Comic Sans MS" Height="15" Width="15"
+        HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 23 0"
+        FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+        x:Name="Button_Unwrap" Click="Button_Unwrap_Click"/>
+                <Button Content="🗕" FontFamily="Comic Sans MS" Height="15" Width="15"
+        HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 41 0"
+        FontSize="8" Background="#63a4ff" BorderBrush="#63a4ff"
+        VerticalContentAlignment="Center" x:Name="Button_RollUp"
+        Click="Button_RollUp_Click"/>
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" x:Name="InformationAdministrator" Visibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+                        <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+                                Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_AddUsers"
+                                Click="Button_AddUsers_Click">
+                    <TextBlock Text="Добавить пользователя" TextWrapping="Wrap"/>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+    <Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+             Foreground="#fff" HorizontalAlignment="Left" x:Name="Button_RedactRoleAndDoljnost"
+            Click="Button_RedactRoleAndDoljnost_Click">
+        <TextBlock Text="Изменить права" TextWrapping="Wrap"/>
+        <Button.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Button.Resources>
+    </Button>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="2" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" Click="Button_DeleteUser_Click"
+        x:Name="Button_DeleteUser">
+    <TextBlock Text="Удалить пользователя" TextWrapping="Wrap"/>
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                </TextBlock>
+                </Grid>
+                <Grid Grid.Row="3" Margin="0 10 0 0" MaxHeight="90">
+                    <TextBlock Width="115" Height="25" TextAlignment="Center">
+<Button Width="110" Height="25" Background="#63a4ff" Content="Сбросить фильтрацию" FontSize="9" FontStyle="Italic"
+         Foreground="#fff" HorizontalAlignment="Left" Click="Button_Click">
+    <Button.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Button.Resources>
+</Button>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </Viewbox>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" MaxHeight="160">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <Label Content="Поиск" FontSize="12" Height="30" Width="90" Foreground="White" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <Label Content="Должность" FontSize="12" Height="30" Width="90" Foreground="White" 
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="2">
+                    <Grid>
+                        <Label Content="Роль" FontSize="12" Height="30" Width="90" Foreground="White" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontStyle="Italic"/>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" MaxHeight="90">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+                            <TextBox Height="20" Width="110" Foreground="Black" HorizontalContentAlignment="Center"
+                            BorderBrush="White" FontSize="9" VerticalContentAlignment="Center" x:Name="TextBox_Search"
+                                     TextChanged="TextBox_Search_TextChanged">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="1">
+                    <Grid>
+                        <TextBlock Width="120" Height="20" TextAlignment="Center">
+                            <ComboBox Width="100" FontSize="7" Height="20" x:Name="ComboBox_Post"
+                                     SelectedItem="{Binding Post}" DisplayMemberPath="Namee" 
+                                      SelectedValuePath="Namee" SelectionChanged="ComboBox_Post_SelectionChanged">
+                        </ComboBox>
+                        </TextBlock>
+                    </Grid>
+                </Viewbox>
+                <Viewbox Grid.Column="2">
+                    <TextBlock Width="120" Height="20" TextAlignment="Center">
+    <ComboBox Width="100" FontSize="7" Height="20" x:Name="ComboBox_Role"
+             SelectedItem="{Binding Rolee}" DisplayMemberPath="Namee" 
+              SelectedValuePath="Namee" SelectionChanged="ComboBox_Role_SelectionChanged">
+</ComboBox>
+                    </TextBlock>
+                </Viewbox>
+            </Grid>
+            <Viewbox Grid.Row="2" Grid.ColumnSpan="3" Margin="5" Stretch="Fill">
+                <ListView Grid.Row="2" Grid.ColumnSpan="3" Margin="5" x:Name="Table"
+              Height="500" Width="1000">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="2" BorderBrush="Black">
+                                <Grid Width="965">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Пользователь:" Margin="10 7 0 0" FontSize="18"/>
+                                            <TextBlock Text="{Binding Surname}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Patronymic}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Должность:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Post.Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="Роль:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Rolee.Namee}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Email:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Email}" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="Номер телефона:" FontSize="18" Margin="10 7 0 0"/>
+                                            <TextBlock Text="{Binding Number_Phone}" FontSize="18" Margin="10 7 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Пароль:" FontSize="18" Margin="10 7 0 7"/>
+                                            <TextBlock Text="{Binding Passwordd}" FontSize="18" Margin="10 7 0 7"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Window>
